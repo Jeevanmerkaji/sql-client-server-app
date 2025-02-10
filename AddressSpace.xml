@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdressSpace TypeToUse="TemperatureSensorServer"  Uri="sms.gmbh.de">
+
+  <Variables Type="TemperatureSensorReadingServer" Url="IsAuthentificationRequired="true" user="admin" Password="password">
+    <!-- Define the Temperature Sensor object -->
+    <Variable Name="Temperature Sensor 1" Path="ns=2;s=TS1" AutoUpdate="True" DataType="Object">
+      <!-- Variables within the Temperature Sensor object -->
+      <SubVariable Name="TS1 Vendor Name" Path="ns=2;s=TS1_VendorName" AutoUpdate="True" DataType="String" Value="Sensor king" />
+      <SubVariable Name="TS1 Serial Number" Path="ns=2;s=TS1_SerialNumber" AutoUpdate="True" DataType="Integer" Value="124563" />
+    </Variable>
+  </Variables>
+
+
+  <Varaibles Type ="WritingServer" Url ="127.0.0.1:12346" IsAuthentificationRequired= "true" User="user" Password = "mypassword"/>
+        <Variable Name="Temperature Sensor 1" Path="ns=2;s=TS1" AutoUpdate="True" DataType="Object">
+            <SubVariable  Name="TS1 Vendor Name" Path="ns=2; s= TS1_VendorName" AutoUpdate="True" DataType="String" />
+            <SubVariable  Name="TS1 Serial Number" Path="ns=2;s=TS1_SerialNumber" AutoUpdate="True" DataType="Integer"/>
+        </Variable>
+</AdressSpace>

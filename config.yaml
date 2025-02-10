@@ -1,0 +1,46 @@
+## Server side configuration 
+
+server:
+  endpoint: "opc.tcp://127.0.0.1:12345"
+  namespace: "Room1"
+
+  objects:
+    temperature_sensor:
+      name: "Temperature Sensor 1"
+      variables:
+        TS1_VendorName: "Sensor king"
+        TS1_SerialNumber: 124563
+        TS1_Temperature: 20.0
+
+    light_bulb:
+      name: "Light Bulb"
+      variables:
+        State: true
+
+
+---
+## Client side configuraion 
+## opcua client configuration 
+client:
+  endpoint: "opc.tcp://127.0.0.1:12345"
+  connection_timeout: 5
+
+  objects:
+    temperature_sensor:
+      name: "Temperature Sensor 1"
+      node_id: "2:Temperature Sensor 1"
+      temperature_variable: "2:TS1_Temperature" 
+    
+    light_bulb:
+      name: "Light Bulb"
+      node_id: "2:Light Bulb"
+      state_variable: "2:State"
+
+
+---
+# Database configuration
+database:
+  driver: "{SQL Server}"
+  server: "SMS-142M\\SQLEXPRESS"
+  database: "myappication"
+  trusted_connection: "yes"
